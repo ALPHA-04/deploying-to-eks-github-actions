@@ -21,8 +21,8 @@ jobs:
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
-        aws-access-key-id: ${{ secrets.ACCESSKEY }}
-        aws-secret-access-key: ${{ secrets.SECRETKEY }}
+        aws-access-key-id: ${{ secrets.ACCESS_KEY }}
+        aws-secret-access-key: ${{ secrets.SECRET_KEY }}
         aws-region: us-east-1
 
     - name: Login to Amazon ECR
@@ -35,6 +35,6 @@ jobs:
         REPOSITORY: primuslearning
         IMAGE_TAG: 1.1
       run: |
-        docker build -t shankarim .
-        docker tag shankarim:latest 040245968506.dkr.ecr.us-east-1.amazonaws.com/shankarim:latest
-        docker push 040245968506.dkr.ecr.us-east-1.amazonaws.com/shankarim:latest
+        docker build -t gitactions .
+        docker tag gitactions:latest 040245968506.dkr.ecr.us-east-1.amazonaws.com/gitactions:latest
+        docker push 040245968506.dkr.ecr.us-east-1.amazonaws.com/gitactions:latest
